@@ -9,7 +9,6 @@ const GlobalStyles = createGlobalStyle`
   }
   
   body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
     background-color: #15202b;
     color: #ffffff;
   }
@@ -17,12 +16,13 @@ const GlobalStyles = createGlobalStyle`
 
 const TestText = styled.p`
     font-weight: 700;
+    font-size: 20px;
 `;
 
 const App: React.FC = () => {
     return (
         <>
-            <TestText>Some test text</TestText>
+            <TestText>Some Test Text</TestText>
             <GlobalStyles/>
         </>
     );
