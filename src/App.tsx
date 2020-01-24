@@ -1,5 +1,9 @@
 import React from 'react';
-import styled, {createGlobalStyle} from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
+import Home from './components/Home';
+import {Switch, Route, Redirect, BrowserRouter} from 'react-router-dom';
+import Explore from "./components/Explore";
+import Notifications from "./components/Notifications";
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -14,15 +18,21 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-const TestText = styled.p`
-    font-weight: 700;
-    font-size: 20px;
-`;
+const allContent = (
+    <BrowserRouter>
+        <Switch>
+            <Route exact path="/home" component={Home}/>
+            <Route exact path="/explore" component={Explore}/>
+            <Route exact path="/notifications" component={Notifications}/>
+            <Redirect to="/home"/>
+        </Switch>
+    </BrowserRouter>
+);
 
 const App: React.FC = () => {
     return (
         <>
-            <TestText>Some Test Text</TestText>
+            {allContent}
             <GlobalStyles/>
         </>
     );
