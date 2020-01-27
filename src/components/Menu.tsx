@@ -1,9 +1,9 @@
 import React  from 'react';
 import styled from "styled-components";
 import {NavLink} from "react-router-dom";
-import {Col, Row} from "./Layout";
+import {Col} from "./Layout";
 
-const Tab = styled(Row)`
+const Tab = styled.span`
     margin: 0;
     padding: 0;
     cursor: pointer;
@@ -11,9 +11,10 @@ const Tab = styled(Row)`
 
 const MenuWrapper = styled(Col)`
     border-right: 1px solid #37444c;
+    min-height: 100vh;
 `;
 
-const MenuInnerWrapper = styled(Col)`
+const MenuInnerWrapper = styled.div`
     padding: 0 20px;
 `;
 
@@ -25,7 +26,7 @@ const MenuIcon = styled.svg`
 
 const TwitterLogo = styled.svg`
   width: 28.38px;
-  margin: 15px 0 20px 10px;
+  margin: 13px 13px 10px 13px;
 `;
 
 const MenuLink = styled(NavLink)`
@@ -35,6 +36,9 @@ const MenuLink = styled(NavLink)`
   color: white;
   font-size: 19px;
   font-weight: 700;
+  display: block;
+  float: left;
+  clear: both;
   :hover {
     background-color: #192D40;
     color: #1DA1F3;
@@ -47,6 +51,9 @@ const LogoLink = styled(NavLink)`
   color: white;
   font-size: 19px;
   font-weight: 700;
+  display: block;
+  float: left;
+  clear: both;
   :hover {
     background-color: #192D40;
     color: #1DA1F3;
@@ -65,9 +72,16 @@ const TweetButton = styled.button`
   cursor: pointer;
   margin-top: 15px;
   outline: none;
+  display: block;
+  clear: both;
   :hover {
     background-color: #1991DA;
   }
+`;
+
+const MenuItem = styled.span`
+  display: flex;
+  align-items: center;
 `;
 
 const Menu = () => {
@@ -83,7 +97,7 @@ const Menu = () => {
                     </TwitterLogo>
                 </LogoLink>
                 <MenuLink to="/home">
-                    <Row>
+                    <MenuItem>
                         <MenuIcon aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home"
                               role="img" xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 576 512">
@@ -91,10 +105,10 @@ const Menu = () => {
                               d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/>
                         </MenuIcon>
                         <Tab className="navigationButton">Home</Tab>
-                    </Row>
+                    </MenuItem>
                 </MenuLink>
                 <MenuLink to="/explore">
-                    <Row>
+                    <MenuItem>
                         <MenuIcon aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hashtag"
                              role="img" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 448 512">
@@ -102,10 +116,10 @@ const Menu = () => {
     d="M440.667 182.109l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l14.623-81.891C377.123 38.754 371.468 32 363.997 32h-40.632a12 12 0 0 0-11.813 9.891L296.175 128H197.54l14.623-81.891C213.477 38.754 207.822 32 200.35 32h-40.632a12 12 0 0 0-11.813 9.891L132.528 128H53.432a12 12 0 0 0-11.813 9.891l-7.143 40C33.163 185.246 38.818 192 46.289 192h74.81L98.242 320H19.146a12 12 0 0 0-11.813 9.891l-7.143 40C-1.123 377.246 4.532 384 12.003 384h74.81L72.19 465.891C70.877 473.246 76.532 480 84.003 480h40.632a12 12 0 0 0 11.813-9.891L151.826 384h98.634l-14.623 81.891C234.523 473.246 240.178 480 247.65 480h40.632a12 12 0 0 0 11.813-9.891L315.472 384h79.096a12 12 0 0 0 11.813-9.891l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l22.857-128h79.096a12 12 0 0 0 11.813-9.891zM261.889 320h-98.634l22.857-128h98.634l-22.857 128z"/>
                         </MenuIcon>
                         <Tab className="navigationButton">Explore</Tab>
-                    </Row>
+                    </MenuItem>
                 </MenuLink>
                 <MenuLink to="/notifications">
-                    <Row>
+                    <MenuItem>
                         <MenuIcon aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bell"
                              role="img" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 448 512">
@@ -113,7 +127,7 @@ const Menu = () => {
     d="M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71z"/>
                         </MenuIcon>
                         <Tab className="navigationButton">Notifications</Tab>
-                    </Row>
+                    </MenuItem>
                 </MenuLink>
                 <TweetButton>Tweet</TweetButton>
             </MenuInnerWrapper>

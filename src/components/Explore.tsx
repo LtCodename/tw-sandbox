@@ -1,6 +1,5 @@
 import React  from 'react';
 import styled from "styled-components";
-import Menu from "./Menu";
 import {Row} from "./Layout";
 
 const TestText = styled.p`
@@ -11,7 +10,6 @@ const TestText = styled.p`
 const Explore = () => {
     return (
         <Row>
-            <Menu/>
             <TestText>Explore Page</TestText>
         </Row>
     )
