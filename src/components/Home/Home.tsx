@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import styled from "styled-components";
 import {Col, Row} from "../Layout";
 import NewPost from "./NewPost";
 import Tweet from "./Tweet";
+import {Context} from "../../App";
 
 const Text = styled.p`
     font-weight: 800;
@@ -39,7 +40,29 @@ const StarA = styled.div`
     }
 `;
 
+export interface ITweetData {
+    avatar: string;
+    name: string;
+    handle: string;
+    time: number;
+    text: string;
+}
+
 const Home = () => {
+    const { allTweets } = useContext(Context);
+    useEffect(() => {
+        console.log(allTweets);
+    },        [allTweets]);
+
+    const tweets = (
+        allTweets.map((tweetData: ITweetData, index: any) => {
+                return (
+                    <Tweet key={index} tweetData={tweetData}/>
+                );
+            },
+        )
+    );
+
     return (
         <>
             <TimelineColumn>
@@ -59,7 +82,7 @@ const Home = () => {
                 {/*Post Area*/}
                 <NewPost/>
                 {/*Tweets Area*/}
-                <Tweet/>
+                {tweets}
             </TimelineColumn>
             <Col>
             </Col>

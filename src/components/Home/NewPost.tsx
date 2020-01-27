@@ -31,7 +31,7 @@ const AvatarAndText = styled(Row)`
 const UnderTweetRow = styled(Row)`
     justify-content: space-between;
     padding-left: 80px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     margin-right: 15px;
     align-items: center;
 `;
@@ -81,7 +81,7 @@ const NewPost = () => {
     return (
         <PostArea>
             <AvatarAndText>
-                <Avatar src={'https://placebear.com/500/500'}/>
+                <Avatar src={'https://pbs.twimg.com/profile_images/1184528927592763392/383Jdfj1_400x400.png'}/>
                 <Textarea
                     placeholder={'What is happening?'}
                     rows={1}

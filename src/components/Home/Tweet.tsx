@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import {Col, Row} from "../Layout";
 import React from "react";
+import {ITweetData} from "./Home";
+import moment from "moment";
 
 const TweetWrapper = styled(Row)`
     border-right: 1px solid #37444c;
@@ -96,19 +98,29 @@ const Interactions = styled(Row)`
     padding-bottom: 10px;
 `;
 
-const Tweet = () => {
+interface ITweets {
+    tweetData: ITweetData;
+}
+
+const Tweet: React.FC<ITweets> = (
+        { tweetData },
+    ) => {
+
+    //const dateToShow = (moment.unix(tweetData.time).format("MM/DD/YYYY"));
+    const dateToShow = (moment.unix(tweetData.time).startOf('day').fromNow());
+
     return (
         <TweetWrapper>
             <Col>
-                <Avatar src={'https://placebear.com/500/500'}/>
+                <Avatar src={tweetData.avatar}/>
             </Col>
             <Col>
                 <TweetHeader>
                     <HeaderLeftElements>
-                        <Username href={''}>Scott Johnson</Username>
-                        <Handle>@ScottJohnson</Handle>
+                        <Username href={''}>{tweetData.name}</Username>
+                        <Handle>{tweetData.handle}</Handle>
                         <Dot/>
-                        <Time href={''}>5m</Time>
+                        <Time href={''}>{dateToShow}</Time>
                     </HeaderLeftElements>
                     <Context aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down"
                          role="img"
@@ -118,7 +130,7 @@ const Tweet = () => {
                     </Context>
                 </TweetHeader>
                 <Row>
-                    <Text>{'We have two new artists today and our lead left some boxes of D on their desks to encourage people to come say hi.  He\'s using this opportunity to say "Doughnut" constantly and every time he does you can feel half the room tense up.'}</Text>
+                    <Text>{tweetData.text}</Text>
                 </Row>
                 <Interactions>
                     <InteractionIcon aria-hidden="true" focusable="false" data-prefix="far" data-icon="heart"
