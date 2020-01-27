@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {Col, Row} from "../Layout";
 import NewPost from "./NewPost";
+import Tweet from "./Tweet";
 
 const Text = styled.p`
     font-weight: 800;
@@ -57,6 +58,8 @@ const Home = () => {
                 </TitleWrapper>
                 {/*Post Area*/}
                 <NewPost/>
+                {/*Tweets Area*/}
+                <Tweet/>
             </TimelineColumn>
             <Col>
             </Col>
