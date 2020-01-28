@@ -2,7 +2,6 @@ import React, {createContext, useState} from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
 import Home from './components/Home/Home';
 import {Switch, Route, Redirect, BrowserRouter} from 'react-router-dom';
-import Explore from "./components/Explore";
 import Notifications from "./components/Notifications";
 import Menu from "./components/Menu";
 import {Row} from "./components/Layout";
@@ -111,7 +110,6 @@ const App: React.FC = () => {
                 <Menu/>
                 <Switch>
                     <Route exact path="/home" component={Home}/>
-                    <Route exact path="/explore" component={Explore}/>
                     <Route exact path="/notifications" component={Notifications}/>
                     <Redirect to="/home"/>
                 </Switch>
