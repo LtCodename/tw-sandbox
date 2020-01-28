@@ -46,12 +46,15 @@ export interface ITweetData {
     handle: string;
     time: number;
     text: string;
+    likes: number;
+    retweets: number;
+    comments: number;
 }
 
 const Home = () => {
     const { allTweets } = useContext(Context);
     useEffect(() => {
-        console.log(allTweets);
+        //console.log(allTweets);
     },        [allTweets]);
 
     const tweets = (

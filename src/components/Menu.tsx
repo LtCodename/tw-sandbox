@@ -43,6 +43,9 @@ const MenuLink = styled(NavLink)`
     background-color: #192D40;
     color: #1DA1F3;
   }
+  &.active {
+    color: #1DA1F3;
+  }
 `;
 
 const LogoLink = styled(NavLink)`
@@ -58,6 +61,7 @@ const LogoLink = styled(NavLink)`
     background-color: #192D40;
     color: #1DA1F3;
   }
+  
 `;
 
 const TweetButton = styled.button`
