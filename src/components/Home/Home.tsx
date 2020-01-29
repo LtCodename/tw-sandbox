@@ -57,7 +57,6 @@ export interface ITweetData {
 const Home = () => {
     const { allTweets } = useContext(Context);
     useEffect(() => {
-        //console.log(allTweets);
     },        [allTweets]);
 
     const tweets = (
@@ -87,6 +86,7 @@ const Home = () => {
             {/*Post Area*/}
             <NewPost/>
             {/*Tweets Area*/}
+            {tweets}
             {tweets}
         </TimelineColumn>
     )

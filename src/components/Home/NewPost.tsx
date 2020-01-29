@@ -70,10 +70,7 @@ const NewPost = () => {
     const { userInfo, addTweet } = useContext(Context);
 
     useEffect(() => {
-        //console.log(userInfo.avatar)
     },        [userInfo]);
-
-
 
     const [tweetData, changeTweetData] = useState('');
 
