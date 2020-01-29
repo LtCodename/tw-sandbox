@@ -32,16 +32,20 @@ const Username = styled.a`
     font-weight: 800;
     color: #ffffff;
     margin-right: 5px;
+    text-decoration: none;
     text-decoration-color: transparent;
-    :hover {
+    :hover span {
+        text-decoration: underline;
         text-decoration-color: #ffffff;
     }
 `;
 
-const Handle = styled.span`
+const Handle = styled.p`
+    font-weight: 400;
     font-size: 15px;
     color: #8899a6;
     margin-right: 5px;
+    margin-left: 10px;
 `;
 
 const Dot = styled.span`
@@ -132,8 +136,12 @@ const Tweet: React.FC<ITweets> = (
             <Col>
                 <TweetHeader>
                     <HeaderLeftElements>
-                        <Username href={''}>{tweetData.name}</Username>
-                        <Handle>{tweetData.handle}</Handle>
+                        <Username href={''}>
+                            <Row>
+                                <span>{tweetData.name}</span>
+                                <Handle>{tweetData.handle}</Handle>
+                            </Row>
+                        </Username>
                         <Dot/>
                         <Time href={''}>{dateToShow}</Time>
                     </HeaderLeftElements>
