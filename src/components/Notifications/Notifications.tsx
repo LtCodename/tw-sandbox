@@ -7,7 +7,7 @@ import {ITweetData} from "../Home/Home";
 import Notification from "./Notification";
 
 const Wrapper = styled(Col)`
-    width: 598px;
+    max-width: 598px;
 `;
 
 const TitleWrapper = styled.div`

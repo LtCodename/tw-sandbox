@@ -7,6 +7,9 @@ const Tab = styled.span`
     margin: 0;
     padding: 0;
     cursor: pointer;
+    @media (max-width: 900px) {
+        display: none;
+    }
 `;
 
 const MenuWrapper = styled(Col)`
@@ -14,14 +17,21 @@ const MenuWrapper = styled(Col)`
     min-height: 100vh;
 `;
 
-const MenuInnerWrapper = styled.div`
+const MenuInnerWrapper = styled(Col)`
     padding: 0 20px;
+    @media (max-width: 900px) {
+        padding: 0 10px;
+        align-items: center;
+    }
 `;
 
 const MenuIcon = styled.svg`
-  width: 26.25px;
-  height: 26.25px;
-  margin-right: 25px;
+    width: 26.25px;
+    height: 26.25px;
+    margin-right: 25px;
+    @media (max-width: 900px) {
+        margin-right: 0px;
+    }
 `;
 
 const TwitterLogo = styled.svg`
@@ -30,21 +40,24 @@ const TwitterLogo = styled.svg`
 `;
 
 const MenuLink = styled(NavLink)`
-  padding: 10px 25px 10px 10px;
-  border-radius: 25px;
-  text-decoration: none;
-  color: white;
-  font-size: 19px;
-  font-weight: 700;
-  display: inline-block;
-  margin-bottom: 5px;
-  :hover {
+    padding: 10px 25px 10px 10px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    font-size: 19px;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 5px;
+    :hover {
     background-color: #192D40;
     color: #1DA1F3;
-  }
-  &.active {
+    }
+    &.active {
     color: #1DA1F3;
-  }
+    }
+    @media (max-width: 900px) {
+        padding: 10px;
+    }
 `;
 
 const LogoLink = styled(NavLink)`
@@ -63,28 +76,54 @@ const LogoLink = styled(NavLink)`
 `;
 
 const TweetButton = styled.button`
-  font-size: 15px;
-  font-weight: 700;
-  padding: 18px 0;
-  width: 211.5px;
-  background-color: #1DA1F2;
-  border: none;
-  border-radius: 50px;
-  color: #FFFFFF;
-  cursor: pointer;
-  outline: none;
-  display: block;
-  clear: both;
-  margin-top: 5px;
-  :hover {
-    background-color: #1991DA;
-  }
+    font-size: 15px;
+    font-weight: 700;
+    padding: 18px 0;
+    min-width: 211.5px;
+    background-color: #1DA1F2;
+    border: none;
+    border-radius: 50px;
+    color: #FFFFFF;
+    cursor: pointer;
+    outline: none;
+    display: block;
+    clear: both;
+    margin-top: 5px;
+    :hover {
+        background-color: #1991DA;
+    }
+    @media (max-width: 900px) {
+        display: none;
+    }
 `;
 
 const MenuItem = styled.span`
   display: flex;
   align-items: center;
 `;
+
+const MobileButtonSVG = styled.svg`
+  width: 22px;
+`;
+
+const TweetButtonMobile = styled.button`
+    padding: 13px 15px;
+    background-color: #1DA1F2;
+    border: none;
+    border-radius: 50%;
+    color: #FFFFFF;
+    cursor: pointer;
+    outline: none;
+    display: none;
+    clear: both;
+    :hover {
+        background-color: #1991DA;
+    }
+    @media (max-width: 900px) {
+        display: block;
+    }
+`;
+
 
 const Menu = () => {
     const [homeHoverState, toggleHomeToggle] = useState(false);
@@ -161,6 +200,14 @@ const Menu = () => {
                     </MenuLink>
                 </div>
                 <TweetButton>Tweet</TweetButton>
+                <TweetButtonMobile>
+                    <MobileButtonSVG aria-hidden="true" focusable="false" data-prefix="fas" data-icon="feather-alt"
+                         role="img" xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 512 512">
+                        <path fill="#FFFFFF"
+    d="M512 0C460.22 3.56 96.44 38.2 71.01 287.61c-3.09 26.66-4.84 53.44-5.99 80.24l178.87-178.69c6.25-6.25 16.4-6.25 22.65 0s6.25 16.38 0 22.63L7.04 471.03c-9.38 9.37-9.38 24.57 0 33.94 9.38 9.37 24.59 9.37 33.98 0l57.13-57.07c42.09-.14 84.15-2.53 125.96-7.36 53.48-5.44 97.02-26.47 132.58-56.54H255.74l146.79-48.88c11.25-14.89 21.37-30.71 30.45-47.12h-81.14l106.54-53.21C500.29 132.86 510.19 26.26 512 0z"/>
+                    </MobileButtonSVG>
+                </TweetButtonMobile>
             </MenuInnerWrapper>
         </MenuWrapper>
     )

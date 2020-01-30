@@ -11,7 +11,7 @@ const Text = styled.p`
 `;
 
 const TimelineColumn = styled(Col)`
-    width: 598px;
+    max-width: 598px;
 `;
 
 const TitleWrapper = styled.div`
