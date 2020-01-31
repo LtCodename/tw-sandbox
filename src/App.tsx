@@ -1,4 +1,4 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
 import Home from './components/Home/Home';
 import {Switch, Route, Redirect, BrowserRouter} from 'react-router-dom';
@@ -24,7 +24,7 @@ const mockTweets = [
         avatar: 'https://pbs.twimg.com/profile_images/922870890701905921/T4hOEwSe_400x400.jpg',
         name: 'Charles LeClerc',
         handle: 'charlie16',
-        time: 1580164342,
+        time: 1580447940,
         likes: 7,
         retweets: 88,
         comments: 1,
@@ -86,7 +86,7 @@ const mockNotifications = [
     },
 ];
 
-const mockMe = {
+const mockUser = {
     avatar: 'https://pbs.twimg.com/profile_images/1184528927592763392/383Jdfj1_400x400.png',
     name: 'Yevhen Chernenko',
     handle: 'LtCodename',
@@ -103,13 +103,18 @@ interface IValue {
 export const Context = createContext<IValue>({});
 
 const App: React.FC = () => {
-    //const initialTweetsData: any = [];
-    const [allTweets, setAllTweets] = useState(mockTweets);
-    const [notifications, setNotifications] = useState(mockNotifications);
-    const [userInfo, setUserInfo] = useState(mockMe);
-    /*useEffect(() => {
+    const initialTweetsData: any = [];
+    const initialNotificationsData: any = [];
+    const initialUserData: any = [];
+    const [allTweets, setAllTweets] = useState(initialTweetsData);
+    const [notifications, setNotifications] = useState(initialNotificationsData);
+    const [userInfo, setUserInfo] = useState(initialUserData);
+
+    useEffect(() => {
         setAllTweets(mockTweets);
-    },        [allTweets]);*/
+        setNotifications(mockNotifications);
+        setUserInfo(mockUser);
+    },        []);
 
     const addTweet = (tweetText: string) => {
         console.log(tweetText);

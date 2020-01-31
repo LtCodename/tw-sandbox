@@ -36,6 +36,7 @@ const StarButton = styled.button`
     background: none;
     border-radius: 50%;
     padding: 10px;
+    outline: none;
     transition: all 0.2s;
     &:hover {
         background: #192D40;

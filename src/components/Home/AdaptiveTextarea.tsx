@@ -11,7 +11,7 @@ const Textarea = styled.textarea`
     font-weight: 500;
     border: none;
     background-color: inherit;
-    width: 505px;
+    width: 100%;
     resize: none;
     outline: none;
 `;

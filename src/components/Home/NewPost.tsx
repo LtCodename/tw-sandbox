@@ -41,6 +41,7 @@ const MediaButton = styled.button`
     border-radius: 50%;
     margin-right: 5px;
     padding: 10px;
+    outline: none;
     transition: all 0.2s;
     &:hover {
         background: #192D40;

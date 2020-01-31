@@ -91,7 +91,6 @@ const InteractionIcon = styled.svg`
 
 const Interactions = styled(Row)`
     justify-content: space-between;
-    padding-right: 130px;
     padding-bottom: 10px;
 `;
 
@@ -105,6 +104,7 @@ const InteractionButton = styled.button<{ backColor: string }>`
     cursor: pointer;
     border: none;
     background: none;
+    outline: none;
     border-radius: 50%;
     padding: 10px;
     transition: all 0.2s;
@@ -126,7 +126,7 @@ const Tweet: React.FC<ITweets> = (
         { tweetData },
     ) => {
 
-    const dateToShow = (moment.unix(tweetData.time).startOf('day').fromNow());
+    const dateToShow = (moment.unix(tweetData.time).fromNow());
 
     return (
         <TweetWrapper>
